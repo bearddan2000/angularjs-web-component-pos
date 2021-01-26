@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="pos">
+    <label for="discount">Discount:</label>
+    <select name="discount" ng-model="discount">
+    </select>
+    <div class="container-fluid">
+    <div class="row header">
+      <div class="col text-center">
+        <b>Type</b>
+      </div>
+      <div class="col text-center">
+        <b>Item</b>
+      </div>
+      <div class="col text-center">
+        <b>Price</b>
+      </div>
+      <div class="col text-center">
+        <b>Sale</b>
+      </div>
+      <div class="col text-center">
+        <b>Discount</b>
+      </div>
+    </div>
+    <clothing item="Blue sweater" price="10.50" discount="getDiscount()"></clothing>
+    <food item="Blueberries" price="3.18" discount="getDiscount()"></food>
+    <clothing item="Red pull-over" price="14.15" discount="getDiscount()"></clothing>
+    <service item="Takeout" price="33.74" discount="getDiscount()"></service>
+    <clothing item="Green socks" price="1.09" discount="getDiscount()"></clothing>
+    <food item="Pepper" price="1.35" discount="getDiscount()"></food>
+    <service item="Oil change" price="21.44" discount="getDiscount()"></service>
+    <food item="Pot pie" price="23.89" discount="getDiscount()"></food>
+    <service item="Movies" price="6.69" discount="getDiscount()"></service>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+let selectValues = {
+    "0":"0%", "5":"5%",
+    "10":"10%", "15":"15%",
+    "20":"20%", "25":"25%",
+    "30":"30%", "35":"35%",
+    "40":"40%", "45":"45%",
+    "50":"50%", "55":"55%",
+    "60":"60%", "65":"65%",
+    "70":"70%", "75":"75%",
+    "80":"80%", "85":"85%",
+    "90":"90%", "95":"95%"
+  };
+  $.each(selectValues, function(key, value) {
+       $('select')
+           .append($("<option></option>")
+                      .attr("value", key)
+                      .text(value));
+  });
+$(document).ready(function() {
+  $('select option').eq(2).prop('selected', true);
+});
+</script>
+<script src="js/app.js" charset="utf-8"></script>
+<script src="js/mainController.js" charset="utf-8"></script>
+<script src="js/component/clothing.js" charset="utf-8"></script>
+<script src="js/component/food.js" charset="utf-8"></script>
+<script src="js/component/service.js" charset="utf-8"></script>
+</body>
+</html>
